@@ -113,10 +113,10 @@ print("Sello Final:", sello_final)
 
 ##### Por Favor Completar sus Datos
 
-<u> **Nombre y Apellido:** </u>
+<u> **Nombre y Apellido:** </u> Valentina Skrobacki
 
-<u> **Email:** </u>
+<u> **Email:** </u> valentinaskrobacki@gmail.com
 
-<u> **Comisión:** </u>
+<u> **Comisión:** </u> 2
 
 --------------------------------------------------------------------------------
