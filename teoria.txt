@@ -1,0 +1,32 @@
+Respuestas teóricas - Primer parcial
+
+--- ejercicio 1.a ---
+La elección de Bilbo tiene sentido porque las coordenadas geográficas de un mapa son datos estáticos que no deben ser alterados, por ende, usar una tupla (inmutable) garantiza la integridad de los datos.
+Por el contrario, un saco de provisiones es dinámico (se consumen o se agregan elementos), por lo que usar una lista (mutable) permite modificar su contenido.
+Si se intercambian los tipos, se perdería la protección de las coordenadas permitiendo errores en el mapa, mientras que el saco de provisiones en una tupla impediria actualizar el inventario de comida (habría que crear una tupla cada vez).
+
+--- ejercicio 3 ---
+Fragmento de código:
+
+x = 10
+def intentar_modificar():
+    x = 20 #intenta modificar x global
+
+intentar_modificar()
+print(x)
+
+Explicación:
+1. Dentro de la funcion, al no declarar 'global x', python no modifica la variable global. En su lugar, crea automáticamente una nueva variable local con el mismo nombre 'x' dentro del ámbito de la función.
+2. Fuera de la función, el valor de 'x' sigue siendo 10.
+3. Para arreglarlo, se debe declarar 'global x' al inicio de la funcion antes de asignarle un nuevo valor:
+    def arreglado():
+        global x
+        x = 20
+
+
+--- ejercicio 5 ---
+En mi funcion 'formas_de_subir(escalones)':
+- Caso base: es cuando 'escalones == 1' (retorna 1) o 'escalones == 2' (retorna 2). Sirve para frenar la recursion.
+- Caso recursivo: es cuando hay mas de 2 escalones y la funcion se vuelve a llamar a si misma restando 1 y 2 escalones para achicar el problema.
+Si borrara el caso base, la funcion nunca tendria un limite de parada. Seguiría llamándose a si misma con numeros cada vez mas chicos y negativos en un ciclo infinito.
+En la practica, como cada llamada ocupa un espacio en la memoria, ésta se terminaría llenando, python detectaría que superó el limite permitido y cortaría el programa tirando el error 'RecursionError' (o 'maximum recursion depth exceeded').
